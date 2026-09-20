@@ -1,0 +1,16 @@
+Test ID,Description,Result,Expected,Status
+1,Load valid 5-state sequence,"['0000', '0011', '0101', '1001', '1100']","['0000', '0011', '0101', '1001', '1100']",PASS
+2,Next state after 0000,0011,0011,PASS
+3,Next state after 1100 (wrap to start),0000,0000,PASS
+4,Simulate 5 pulses returns to start,0000,0000,PASS
+5,Simulate 1 pulse,"['0000', '0011']","['0000', '0011']",PASS
+6,Load 2-state minimum sequence,"['1111', '0000']","['1111', '0000']",PASS
+7,Load 4-state sequence,"['0001', '0010', '0100', '1000']","['0001', '0010', '0100', '1000']",PASS
+8,Transition table has 16 rows,16,16,PASS
+9,Valid states count matches sequence length,5,5,PASS
+10,Invalid states count correct,11,11,PASS
+11,Non-binary character in state,Invalid 4-bit state: abcd,ERROR,PASS
+12,Single state only (too short),Sequence must have at least 2 states,ERROR,PASS
+13,Duplicate states,Duplicate states not allowed,ERROR,PASS
+14,5-bit state (wrong length),Invalid 4-bit state: 00011,ERROR,PASS
+15,Empty sequence list,Sequence must have at least 2 states,ERROR,PASS
