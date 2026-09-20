@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Random Sequence Counter Simulator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark"></span>
+      <div>
+        <h1>Random Sequence Counter</h1>
+        <p>4-bit Synchronous State Machine · Interactive Simulator</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="stage">
+
+    <section class="info-block">
+      <span class="info-tag">Problem Statement</span>
+      <p>Design a software solution for the real-world scenario represented by "Random Sequence Counter Simulator", using the specified digital-system concept and reproducible synthetic data.</p>
+    </section>
+
+    <section class="info-block">
+      <span class="info-tag">Software Solution</span>
+      <p>An interactive 4-bit synchronous state-machine simulator that accepts a user-defined sequence, validates each transition, simulates clock pulses on demand, and flags invalid/unused states through a live transition table.</p>
+    </section>
+
+    <section class="load-panel">
+      <input type="text" id="seqInput" placeholder="0000,0011,0101,1001,1100">
+      <button id="loadBtn">Load Sequence</button>
+      <button id="randomBtn" type="button">Random</button>
+    </section>
+    <p id="statusMsg" class="status"></p>
+
+    <section class="ring-stage">
+      <div class="ring" id="nodeRing">
+        <div class="core" id="core">
+          <span class="core-label">STATE</span>
+          <span class="core-value" id="coreValue">----</span>
+          <span class="core-dec" id="coreDec">—</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="stream-panel">
+      <span class="stream-label">LIVE OUTPUT</span>
+      <div class="stream" id="stream">— — — —</div>
+    </section>
+
+    <div class="controls">
+      <button id="clockBtn" class="pulse-btn" disabled>Clock Pulse</button>
+      <button id="resetBtn" class="ghost-btn" disabled>Reset</button>
+    </div>
+
+    <section class="card-row">
+      <div class="info-card">
+        <span class="card-label">Next State</span>
+        <span class="card-value" id="nextState">----</span>
+      </div>
+      <div class="info-card">
+        <span class="card-label">Pulse Count</span>
+        <span class="card-value" id="pulseCount">0</span>
+      </div>
+      <div class="info-card">
+        <span class="card-label">Sequence Length</span>
+        <span class="card-value" id="seqLen">0</span>
+      </div>
+      <div class="info-card">
+        <span class="card-label">Active / Unused</span>
+        <span class="card-value" id="activeRatio">0 / 16</span>
+      </div>
+    </section>
+
+    <section class="table-panel">
+      <h2>Transition Table</h2>
+      <table id="transTable">
+        <thead><tr><th>State</th><th>Dec</th><th>Next</th><th>Status</th></tr></thead>
+        <tbody id="transTableBody"></tbody>
+      </table>
+    </section>
+
+    <section class="link-block">
+      <a href="https://kiruthigapandiyarajan.github.io/random_sequence_counter/" class="platform-link">Go to Student Learning Platform</a>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
